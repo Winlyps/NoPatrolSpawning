@@ -6,9 +6,14 @@ class NoPatrolSpawning : JavaPlugin() {
 
     override fun onEnable() {
         // Plugin startup logic
+        server.worlds.forEach { world ->
+            world.setGameRuleValue("doPatrolSpawning", "false")
+        }
+        logger.info("NoPatrolSpawning plugin has been enabled.")
     }
 
     override fun onDisable() {
         // Plugin shutdown logic
+        logger.info("NoPatrolSpawning plugin has been disabled.")
     }
 }
